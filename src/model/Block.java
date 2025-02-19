@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Block {
-    private ArrayList<Face> faces;
+    private Map<String, Face> faces;
     private Map<String, Integer> position;
 
     public Block() {
-        this.faces = new ArrayList<Face>();
         this.position = new HashMap<String, Integer>();
         this.position.put("x", 0);
         this.position.put("y", 0);
@@ -29,23 +28,17 @@ public class Block {
         this.position.put("z", z);
     }
 
-    //EFFECTS: Adds the given face to the block
-    //MODIFIES: THIS    
-    public void addFace(Face face) {
-        this.faces.add(face);
-    }
-
     //For testing purposes
-    public void removeFace(int index) {
-        this.faces.remove(index);
+    public void removeFace(String key) {
+        this.faces.remove(key);
     }
 
     //For testing purposes
     public void resetFaces() {
-        this.faces = new ArrayList<Face>();
+        this.faces = new HashMap<String, Face>();
     }
 
-    public ArrayList<Face> getFaces() {
+    public Map<String, Face> getFaces() {
         return this.faces;
     }
 
